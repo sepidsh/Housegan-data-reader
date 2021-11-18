@@ -2,7 +2,7 @@
 House-GAN++ (data-reader)
 ======
 
-Code and instructions for converting rplan dataset( raster images) to housegan++ data format. 
+Code and instructions for converting rplan dataset (raster images) to [housegan++](https://github.com/ennauata/houseganpp) data format. 
 [House-GAN++: Generative Adversarial Layout Refinement Network towards Intelligent Computational Agent for Professional Architects]
 (https://arxiv.org/abs/2103.02574), CVPR 2021.
 Project [website](https://ennauata.github.io/houseganpp/page.html).
