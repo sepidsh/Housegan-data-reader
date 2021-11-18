@@ -12,7 +12,7 @@ Project [website](https://ennauata.github.io/houseganpp/page.html).
 
 Input Data
 ------
-![alt text](https://github.com/sepidsh/Housegan-data-reader/blob/main/image/0.png "Sample")
+![alt text](https://github.com/sepidsh/Housegan-data-reader/blob/main/image/0.jpg "Sample")
 <br/>
 Data: [RPLAN dataset](http://staff.ustc.edu.cn/~fuxm/projects/DeepLayout/index.html), which offers 60k vector-graphics floorplans designed by professional architects. Qualitative and quantitative evaluations based on the three standard metrics (i.e., realism, diversity, and compatibility) in the literature demonstrate that the proposed system outperforms the current-state-of-the-art by a large margin.<br/>
 <br/>
