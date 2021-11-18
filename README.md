@@ -23,7 +23,8 @@ Data: [RPLAN dataset](http://staff.ustc.edu.cn/~fuxm/projects/DeepLayout/index.h
  
 How to run
 ------
-  '''python rasetr_to_json.py --path #rplan_dataset/#image_number.png'''
+  
+```python rasetr_to_json.py --path #rplan_dataset/#image_number.png```
 
 Output data format
 ------
