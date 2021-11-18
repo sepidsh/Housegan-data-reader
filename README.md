@@ -3,10 +3,14 @@ House-GAN++ (data-reader)
 ======
 
 Code and instructions for converting rplan dataset( raster images) to housegan++ data format. 
-[House-GAN++: Generative Adversarial Layout Refinement Network towards Intelligent Computational Agent for Professional Architects](https://arxiv.org/abs/2103.02574), CVPR 2021. Project [website](https://ennauata.github.io/houseganpp/page.html).
-Input Data : [RPLAN dataset](http://staff.ustc.edu.cn/~fuxm/projects/DeepLayout/index.html), which offers 60k vector-graphics floorplans designed by professional architects. Qualitative and quantitative evaluations based on the three standard metrics (i.e., realism, diversity, and compatibility) in the literature demonstrate that the proposed system outperforms the current-state-of-the-art by a large margin.<br/>
+[House-GAN++: Generative Adversarial Layout Refinement Network towards Intelligent Computational Agent for Professional Architects]
+(https://arxiv.org/abs/2103.02574), CVPR 2021.
+Project [website](https://ennauata.github.io/houseganpp/page.html).
+
 <br/>
  
+Input Data : [RPLAN dataset](http://staff.ustc.edu.cn/~fuxm/projects/DeepLayout/index.html), which offers 60k vector-graphics floorplans designed by professional architects. Qualitative and quantitative evaluations based on the three standard metrics (i.e., realism, diversity, and compatibility) in the literature demonstrate that the proposed system outperforms the current-state-of-the-art by a large margin.<br/>
+
  
 
 Input Data
