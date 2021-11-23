@@ -16,7 +16,18 @@ Input Data
 Data: [RPLAN dataset](http://staff.ustc.edu.cn/~fuxm/projects/DeepLayout/index.html), which offers 60k vector-graphics floorplans designed by professional architects. 
 <br/>
  
- 
+Requirtments
+------
+   
+```
+pip install argparse
+pip install numpy
+pip install matplotlib
+pip install shapely
+pip install descartes 
+
+```
+
 How to run
 ------
   
