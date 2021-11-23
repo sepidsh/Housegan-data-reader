@@ -2,9 +2,6 @@
 import os
 import json
 import argparse
-import json
-import open3d
-import pymesh
 import numpy as np
 import matplotlib.pyplot as plt
 from shapely.geometry import Polygon
