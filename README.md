@@ -1,4 +1,4 @@
-#House-GAN++ (data-reader)
+# House-GAN++ (data-reader)
 ======
 
 Code and instructions for converting rplan dataset (raster images) to [housegan++](https://github.com/ennauata/houseganpp) data format. 
