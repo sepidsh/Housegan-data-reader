@@ -31,7 +31,7 @@ pip install descartes
 How to run
 ------
   
-```python rasetr_to_json.py --path #rplan_dataset/#image_number.png```
+```python raster_to_json.py --path #rplan_dataset/#image_number.png```
 
 Output data format
 ------
