@@ -1,22 +1,20 @@
-
-import os
 import json
 import argparse
 import numpy as np
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 from shapely.geometry import Polygon
-from descartes.patch import PolygonPatch
+# from descartes.patch import PolygonPatch
 from read_dd import read_data
-from misc.figures import plot_coords
-from misc.colors import colormap_255, semantics_cmap
+
+import warnings
 
 
-def raster_to_json(line):
+def raster_to_json(line, print_door_warning):
     """ convert extracted data from rasters to housegan ++ data format :  extract rooms type, bbox, doors, edges and neigbour rooms
                 
     """
-    fig = plt.figure()
-    ax = fig.add_subplot(1, 1, 1)
+    # fig = plt.figure()
+    # ax = fig.add_subplot(1, 1, 1)
     bbox_x1=[]
     bbox_y1=[]
     bbox_x2=[]
@@ -24,6 +22,7 @@ def raster_to_json(line):
     walls=[]
 
     room_type,poly,doors_, walls,out=read_data(line)
+
     d=[]
     all_doors=[]
     for i in range(1,len(doors_)+1):
@@ -102,7 +101,8 @@ def raster_to_json(line):
             al_dr=al_dr+1
                 
         else:
-            print("sometime not 2 dooor",hd,doors)		
+            if print_door_warning:
+                print("sometime not 2 dooor",hd,doors)		
     
         assert(len(dr_t)<=2)
   
@@ -256,24 +256,25 @@ def raster_to_json(line):
             pm.append(([edges[km+p_i][0],edges[km+p_i][1]]))
         km=km+p
         polygon = Polygon(pm)
-        plot_coords(ax, polygon.exterior, alpha=0)
+        # plot_coords(ax, polygon.exterior, alpha=0)
         bbox=np.asarray(polygon.bounds)
         bboxes.append(bbox.tolist())
      
         
-        patch = PolygonPatch(polygon, facecolor=semantics_cmap["bedroom"], alpha=0.7)
-        ax.add_patch(patch)
+        # patch = PolygonPatch(polygon, facecolor=semantics_cmap["bedroom"], alpha=0.7)
+        # ax.add_patch(patch)
    
     info['room_type'] = room_type
     info['boxes'] = bboxes
     info['edges'] = edges
     info['ed_rm'] = ed_rm
 
-    print(bboxes)
+    # print(bboxes)
    
+    fp_id = line.split("/")[-1].split(".")[0]
   
     ### saving json files
-    with open("../../../../../guriv-64/hg_rooms/"+line[17:-4]+".json","w") as f:
+    with open(f"rplan_json/{fp_id}.json","w") as f:
          json.dump(info, f)
 
 
@@ -288,9 +289,18 @@ def parse_args():
 
 def main():
     args = parse_args()
-    line=args.path 
-    raster_to_json(line)
+    line=args.path
 
+    try:
+        raster_to_json(line, print_door_warning=False)
+    except (AssertionError, ValueError, IndexError) as e:
+        fp_id = line.split("/")[-1].split(".")[0]
+
+        with open(f"failed_rplan_json/{fp_id}", "w") as f:
+            f.write(str(e))
 
 if __name__ == "__main__":
-    main()
+
+    with warnings.catch_warnings():
+        warnings.simplefilter("ignore")
+        main()

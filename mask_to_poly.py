@@ -1,12 +1,4 @@
-
-
 import numpy as np
-from PIL import Image
-import os, sys, glob
-import matplotlib.pyplot as plt
-from itertools import groupby
-import torch
-import cv2
 from shapely import geometry as geo
 
 cts = [[[1,1,0],[1,1,0],[0,0,0]], [[1,1,1],[1,1,1],[1,1,0]], [[0,0,1],[0,1,1],[0,1,1]], [[0,0,0],[0,1,1],[1,1,1]]]
