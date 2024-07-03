@@ -7,6 +7,7 @@ from shapely.geometry import Polygon
 from read_dd import read_data
 
 import warnings
+import os
 
 
 def raster_to_json(line, print_door_warning):
@@ -272,12 +273,16 @@ def raster_to_json(line, print_door_warning):
     # print(bboxes)
    
     fp_id = line.split("/")[-1].split(".")[0]
+    
+    output_dir = "rplan_json"
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+    
+    fp_id = line.split("/")[-1].split(".")[0]
   
     ### saving json files
-    with open(f"rplan_json/{fp_id}.json","w") as f:
-         json.dump(info, f)
-
-
+    with open(f"{output_dir}/{fp_id}.json", "w") as f:
+        json.dump(info, f)
 
 
 def parse_args():
@@ -286,19 +291,21 @@ def parse_args():
                         help="dataset path", metavar="DIR")
     return parser.parse_args()
 
-
 def main():
     args = parse_args()
-    line=args.path
+    line = args.path
 
     try:
         raster_to_json(line, print_door_warning=False)
     except (AssertionError, ValueError, IndexError) as e:
+        # Ensure the failed output directory exists
+        failed_output_dir = "failed_rplan_json"
+        if not os.path.exists(failed_output_dir):
+            os.makedirs(failed_output_dir)
+
         fp_id = line.split("/")[-1].split(".")[0]
-
-        with open(f"failed_rplan_json/{fp_id}", "w") as f:
+        with open(f"{failed_output_dir}/{fp_id}", "w") as f:
             f.write(str(e))
-
 if __name__ == "__main__":
 
     with warnings.catch_warnings():
